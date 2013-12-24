@@ -1,0 +1,204 @@
+#echo "Reading .tcshrc"
+#mount_msdosfs -Wkoi2dos /dev/da0s1 /mnt/
+#setenv http_proxy http://10.15.0.2:80
+
+#alias v		~/opt/vim/bin/vim -p
+alias v		vim -p
+#alias gv	~/opt/vim/bin/gvim -p
+alias gv	gvim -p
+alias m		make
+alias cl	make clean
+alias j		jobs -l
+alias l		ls -GF
+alias la	ls -GFa
+alias lf	ls -FA
+alias ll	ls -lGFA
+alias clean	'rm *~'
+alias d2h       'printf "%x\n"'
+alias h2d       'printf "%d\n"'
+alias rm	rm -iI
+#alias make 'make \!* |& tee .make.out'
+#alias VPNroute	'route add -host 195.184.198.20 192.168.31.232'
+#alias VPNconnect '/usr/local/sbin/pptp 195.184.198.20 vpn &'
+
+alias bak 'cp -r \!:1 \!:1.`date +%Y%m%d%H%M%S`'
+alias sig '\!* ; notify-send -t 30000 "cmd execution is complete!" "DIR: `pwd`CMD: \!*"'
+alias wtf 'echo "\!*" | xsel -i ; ~/opt/trsel'
+alias mc  'env TERM=xterm-256color mc'
+alias tig  'env TERM=xterm-256color tig'
+#rsync --partial --progress --rsh=ssh user@server:/remote/file /local/file"
+
+############################
+### Maintain directory stack
+############################
+### Hint 1: refer to the stack's 0-th element: $ echo =0
+### Hint 2: refer to the stack top: $ echo =1
+### Hint 3: refer to the stack bottom: $ echo =-
+set dirsfile=~/.cshdirs
+set dirstack
+#set savedirs
+alias \+ 'pushd `pwd`'
+alias \- 'popd'
+
+complete cd 'p/1/d/'
+
+### \!* - all arguments
+### \!:1 - 1st argument
+# autocompletion
+set autolist
+# cd to dir without typing 'cd'
+#set implicitcd
+# ask for comfirmation on 'rm *'
+set rmstar
+# auto correction for cmds
+set correct=none
+# enable completion
+#complete env 'n/*/v/'
+
+###############################
+### add Make targets completion
+###############################
+#alias __make_get_targets "grep \"^\\w*:\" Makefile | awk '{print $1;}'"
+#complete make 'p/1/`__make_get_targets`/'
+
+###########################
+### add git cmds completion
+###########################
+set __git_cmd_names = (add bisect blame branch checkout clone commit config \
+                       diff difftool fetch grep gui init log merge mv pull push \
+                       rebase reset rm show shortlog show-branch stash status tag)
+
+alias __git_aliases 'git config --get-regex "alias.*" | sed -n "s,alias\.\([^ ]*\).*,\1,p"'
+alias __git_branches 'git for-each-ref --format="%(refname)" refs/heads refs/remotes | sed -e s,refs/remotes/,, | sed -e s,refs/heads/,,'
+alias __git_origin_branches 'git for-each-ref --format="%(refname)" refs/remotes/origin | grep -v HEAD | sed -e s,refs/remotes/origin/,,'
+alias __git_curr_branch 'sh -c "git symbolic-ref HEAD 2>/dev/null | xargs -r basename"'
+
+set __pkg_cmd_names = (add audit autoremove backup check clean create delete \
+                       fetch help info install query register remove repo \
+                       rquery search set shell shlib stats update updating \
+                       upgrade version which)
+
+complete pkg 'p/1/$__pkg_cmd_names/'
+
+# Define the completions (see the tcsh man page).
+complete git \
+    'p/1/$__git_cmd_names/'
+#    'p/1/`__git_aliases | xargs echo $__git_cmd_names`/' \
+#    "n/help/($__git_cmd_names)/" \
+#    'n/branch/`__git_branches | xargs echo -m -d`/' \
+#    'n/config/(--global --get-regexp --list)/' \
+#    'n/diff/`__git_branches | xargs echo --check --staged --stat -- *`/' \
+#    'n/difftool/`__git_branches | xargs echo --no-prompt --staged -- *`/' \
+#    'n/fetch/`git remote`/' \
+#    'n/merge/`__git_branches`/' \
+#    'n/_log/`__git_branches | xargs echo -- --name-only --name-status --reverse --committer= --no-color --relative --ignore-space-change --ignore-space-at-eol --format=medium --format=full --format=fuller`/' \
+#    'n/stash/(apply list save pop clear)/' \
+#    'n/push/`git remote`/' \
+#    'N/push/`__git_origin_branches`/' \
+#    'n/pull/`git remote | xargs echo --rebase`/' \
+#    'n/--rebase/`git remote`/' \
+#    'N/--rebase/`__git_origin_branches`/' \
+#    'N/pull/`__git_origin_branches`/' \
+#    'n/rebase/`__git_branches | xargs echo --continue --abort --onto --skip --interactive`/' \
+#    'N/rebase/`__git_branches`/' \
+#    'n/remote/(show add rm prune update)/' \
+#    'N/remote/`git remote`/' \
+#    'n/checkout/`__git_branches | xargs echo -b --`/' \
+#    'N/-b/`__git_branches`/'
+
+#set autologout=60
+
+umask 77
+
+
+set path=(/bin /usr/sbin /usr/bin /usr/local/sbin /usr/local/bin $HOME/bin $path)
+setenv EDITOR	vim
+setenv PAGER	less
+setenv BLOCKSIZE	K
+set padhour
+set prompt="[%{[33m%}%T%{[0m[39m%}]%b%n@%{[34m%}%B%m%b%U%~%u%# "
+alias precmd 'set prompt="[%{[33m%}%T%{[0m[39m%}]%b%n@%{[34m%}%B%m%b%U%~ (%{[33m%}`__git_curr_branch`%{[0m%})%u%# "'
+
+setenv PATH $HOME/opt/task-2.3.0/bin:$PATH
+setenv PATH $HOME/opt/taskhelm-0.2.1/bin:$PATH
+setenv PATH $HOME/opt/vittk-1.3/bin:$PATH
+
+###QT
+#setenv  QTDIR /usr/local/qt-4.4.3
+#setenv  QTDIR /usr/local/qt-4.5.3
+#setenv  QTDIR /usr/local/qt-4.6.3
+#setenv  QTDIR /usr/local/qt-4.7.2
+#setenv	PATH $QTDIR/bin:$PATH
+#setenv	MANPATH $QTDIR/doc/man:$MANPATH
+#setenv  LD_LIBRARY_PATH $QTDIR/lib:/usr/local/pgsql/lib:/usr/local/apache2/modules:/usr/local/lib
+#setenv  QMAKESPEC freebsd-g++
+#needed for compilation of Qt libs#
+#setenv  QMAKESPEC freebsd-g++34
+
+set langmap
+
+#setenv LANG ru_RU.KOI8-R
+#setenv MM_CHARSET ru_RU.KOI8-R
+#setenv LC_ALL en_US
+
+setenv LANG ru_RU.UTF-8
+setenv MM_CHARSET ru_RU.UTF-8
+setenv LC_COLLATE C
+setenv LC_ALL en_US.UTF-8
+
+if ($?prompt) then
+	# An interactive shell -- set some stuff up
+	set filec
+	set history = 300
+	set savehist = 300
+	set mail = (/var/mail/$USER)
+	if ( $?tcsh ) then
+		bindkey "^W" backward-delete-word
+		bindkey -k up history-search-backward
+		bindkey -k down history-search-forward
+        bindkey "[H" beginning-of-line
+        bindkey "[F" end-of-line
+        bindkey "[1;5D" backward-word
+        bindkey "[1;5C" forward-word
+        bindkey "[3~" delete-char
+
+		# Ctrl-PgUp
+		# [5  ==  PageUp
+		# [6  ==  PageDown
+		# ;3~  == with Alt
+		# ;5~  == with Ctrl
+		# ;7~  == with Ctrl-Alt
+		bindkey -c "[5;7~" '3ddesk --view=goleft'
+		# Ctrl-PgDown
+		bindkey -c "[6;7~" '3ddesk --view=goright'
+
+	endif
+endif
+
+#################
+### LS_COLORS ###
+#################
+# di  Directory
+# fi  File
+# ln  Symbolic Link
+# pi  Fifo file
+# so  Socket file
+# bd  Block (buffered) special file
+# cd  Character (unbuffered) special file
+# or  Symbolic Link pointing to a non-existent file (orphan)
+# mi  Non-existent file pointed to by a symbolic link (visible when you type ls -l)
+# ex  File which is executable (ie. has 'x' set in permissions).
+setenv LS_COLORS "no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:"
+setenv LS_COLORS "${LS_COLORS}*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.xz=00;31:*.fli=01;35:*.mng=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.dl=01;35:*.gl=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.voc=00;32:"
+setenv LS_COLORS "${LS_COLORS}*.bmp=01;35:*.jpg=01;35:*.jpeg=01;35:*.png=01;35:*.gif=01;35:*.xpm=01;35:"
+setenv LS_COLORS "${LS_COLORS}*.tar=31:*.tgz=31:*.arj=31:*.taz=31:*.lzh=31:*.lzma=31:*.zip=31:*.zoo=31:*.z=31:*.Z=31:*.gz=31:*.bz2=31:*.tb2=31:*.tz2=31:*.tbz2=31:*.rar=31:"
+setenv LS_COLORS "${LS_COLORS}*.tbz=31:*.rpm=31:*.deb=31:"
+setenv LS_COLORS "${LS_COLORS}*.avi=36:*.mp3=36:*.mpg=36:*.ogg=36:*.ogv=36:*.wav=36:*.oga=36:*.mkv=36:*.mov=36:*.wmv=36:*.mp4=36:"
+setenv LS_OPTIONS "-N --color=tty -T 0"
+
+
+setenv PATH /usr/local/kde4/bin:$PATH
+
+#echo "Reading .tcshrc done"
+setxkbmap -option grp:switch,grp:shifts_toggle us,ru
+setenv PATH /usr/sbin:$PATH

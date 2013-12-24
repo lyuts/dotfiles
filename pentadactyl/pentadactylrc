@@ -1,0 +1,8 @@
+"hg6882
+
+loadplugins '\.(js|penta)$'
+group user
+command! ns :javascript noscriptOverlay.showUI()
+set guioptions=bCrsTn
+
+" vim: set ft=pentadactyl:
