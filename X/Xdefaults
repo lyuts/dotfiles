@@ -12,6 +12,18 @@ URxvt.keysym.Control-Up : \033[1;5A
 URxvt.keysym.Control-Down : \033[1;5B
 URxvt.keysym.Control-Left : \033[1;5D
 URxvt.keysym.Control-Right : \033[1;5C
+URxvt.keysym.Shift-F1: \033O2P
+URxvt.keysym.Shift-F2: \033O2Q
+URxvt.keysym.Shift-F3: \033O2R
+URxvt.keysym.Shift-F4: \033O2S
+URxvt.keysym.Shift-F5: \033[15;2~
+URxvt.keysym.Shift-F6: \033[17;2~
+URxvt.keysym.Shift-F7: \033[18;2~
+URxvt.keysym.Shift-F8: \033[19;2~
+URxvt.keysym.Shift-F9: \033[20;2~
+URxvt.keysym.Shift-F10: \033[21;2~
+URxvt.keysym.Shift-F11: \033[23;2~
+URxvt.keysym.Shift-F12: \033[24;2~
 URxvt.keysym.S-M-F1: \033O4P
 URxvt.keysym.S-M-F2: \033O4Q
 URxvt.keysym.S-M-F3: \033O4R
