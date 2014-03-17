@@ -1,4 +1,4 @@
-URxvt*saveLines: 12000
+URxvt*saveLines: 2000
 URxvt*font: xft:Anonymous Pro For Powerline:pixelsize=17:antialias=true:hinting=true
 #URxvt*boldFont: xft:Anonymous Pro For Powerline:bold:pixelsize=17:antialias=true:hinting=true
 URxvt*boldFont: xft:Anonymous Pro For Powerline:pixelsize=17:antialias=true:hinting=true
@@ -6,6 +6,7 @@ URxvt*scrollBar: true
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: rxvt
 URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
 URxvt*loginShell: true
 
 !--- key codes ---
@@ -87,8 +88,6 @@ URxvt.transparent:          false
 URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
-URxvt.loginShell:           true
-URxvt.saveLines:            50
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
