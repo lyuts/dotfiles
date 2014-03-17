@@ -5,6 +5,7 @@ URxvt*boldFont: xft:Anonymous Pro For Powerline:pixelsize=17:antialias=true:hint
 URxvt*scrollBar: true
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: rxvt
+URxvt.scrollTtyOutput: false
 URxvt*loginShell: true
 
 !--- key codes ---
