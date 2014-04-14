@@ -165,6 +165,7 @@ if ($?prompt) then
         bindkey "[1;5D" backward-word
         bindkey "[1;5C" forward-word
         bindkey "[3~" delete-char
+        bindkey "" backward-delete-char
 
 		# Ctrl-PgUp
 		# [5  ==  PageUp
