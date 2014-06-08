@@ -38,6 +38,8 @@ URxvt.keysym.S-M-F9: \033[20;4~
 URxvt.keysym.S-M-F10: \033[21;4~
 URxvt.keysym.S-M-F11: \033[23;4~
 URxvt.keysym.S-M-F12: \033[24;4~
+#URxvt*keysym.Home: \033[1~
+#URxvt*keysym.End: \033[E
 !--- key codes ---
 
 !--- Tango colours ---
