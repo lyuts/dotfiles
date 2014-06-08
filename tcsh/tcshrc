@@ -158,17 +158,17 @@ if ($?prompt) then
         bindkey "^W" backward-delete-word
         bindkey "[3~" delete-char
         bindkey "" backward-delete-char
+        bindkey -k up history-search-backward
+        bindkey -k down history-search-forward
+        bindkey "[1;5D" backward-word
+        bindkey "[1;5C" forward-word
 
         if ( $?TMUX ) then
             bindkey "[1~" beginning-of-line
             bindkey "[4~" end-of-line
         else
-            bindkey -k up history-search-backward
-            bindkey -k down history-search-forward
             bindkey "[H" beginning-of-line
             bindkey "[F" end-of-line
-            bindkey "[1;5D" backward-word
-            bindkey "[1;5C" forward-word
 
             # Ctrl-PgUp
             # [5  ==  PageUp
