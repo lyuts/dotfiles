@@ -2,11 +2,11 @@
 
 while true; do
 
-LOAD=`uptime | cut -d ':' -f 4`
+LOAD=`uptime | sed -e 's/.*: //g'`
 DATE=`date "+%T %F"`
 BATTERY=`apm -l`
 
-echo "$BATTERY% | $LOAD | $DATE"
+echo "${BATTERY}% | $LOAD | $DATE"
 sleep 1
 
 done
