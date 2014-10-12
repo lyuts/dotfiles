@@ -5,6 +5,7 @@ group user
 command! ns :javascript noscriptOverlay.showUI()
 command! rp :javascript requestpolicy.overlay.openToolbarPopup()
 set guioptions=bCrsTn
+set defsearch=duckduckgo
 
 set hintkeys="asdfjkl;"
 
