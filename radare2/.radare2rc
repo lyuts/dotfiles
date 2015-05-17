@@ -1,0 +1,5 @@
+e asm.cmtright=true
+e asm.pseudo=true
+e cmd.stack=true
+eco solarized
+e scr.utf8=true
