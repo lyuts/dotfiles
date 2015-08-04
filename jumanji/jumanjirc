@@ -1,0 +1,139 @@
+# Genetic: {
+    set browser_name jumanji
+    set enable_webgl true
+    set single_instance true
+    set homepage http://google.com/
+    # set private_browsing true
+    set editor vim
+    set spawn_editor vim
+    set user_agent          = "Mozilla/5.0 (X11; U; Linux x86_64; en-us) AppleWebKit/531.2+ (KHTML, like Gecko) Safari/531.2+ jumanji/0.1";
+    # set y yank
+    # set paste
+# }
+
+
+# Interface: {
+    set scrollbar true
+    set tabbar true
+    set font ubuntu 9
+    # set content font size
+    set font_size 12
+    set minimum_font_size 8
+    # set heigh and width
+    set height 580 
+    set width 1024
+# }
+
+
+# Download: {
+set download_dir ~/Downloads/
+set download_command urxvt -e sh -c "wget --load-cookies ~/.config/jumanji/cookies '%s' -O %s";
+# set download_command gnome-terminal -x sh -c "wget --load-cookies ~/.config/jumanji/cookies '%s' -O %s";
+# set download_command foo %s %s
+# }
+
+
+# Plugin: {
+set plugin_blocker true
+plugin application/x-shockwave-flash
+# }
+
+
+# Search Engine: {
+searchengine google http://www.google.com/search?q=%s
+searchengine wiki http://en.wikipedia.org/wiki/Special:Search?search=%s
+searchengine blekko http://blekko.com/ws/+%s
+searchengine duck http://duckduckgo.com/?q=%s 
+searchengine baidu http://www.baidu.com/s?wd=%s
+searchengine github http://github.com/search?q=%s 
+# searchengine digg http://digg.com/search?s=%s 
+searchengine wiki-sec https://secure.wikimedia.org/wikipedia/en/w/index.php?search=%s
+# searchengine gl http://www.google.com/linux?hl=en&safe=off&q=%s
+# }
+
+
+# Hints: {
+# script ~/.config/jumanji/scripts/hints_char.js
+script ~/.config/jumanji/scripts/hints.js
+script ~/.config/jumanji/scripts/prettify.js
+# }
+
+
+# Session: {
+# auto save bookmarks and historys and session 
+# auto save session and restore session when open jumanji
+set auto_save 60
+set default_session_name start
+set session_restored true
+# }
+
+
+# CSS: {
+set stylesheet ~/.config/jumanji/style.css
+# }
+
+
+# Proxy: { C-p to toggle proxy
+# after you installed privoxy
+# set proxy 127.0.0.1:8118
+# FreeGate
+# set proxy 127.0.0.1:8580
+# I2P
+# set proxy 127.0.0.1:4444
+# Tor
+# set proxy 127.0.0.1:9050
+# }
+
+
+# # ColorScheme: {
+# # set look colors
+# set default_bgcolor #000000
+# set default_fgcolor #00FF00
+# # set inputbar colors 
+# set inputbar_fgcolor #00FF00
+# set inputbar_bgcolor #000000
+# # set statusbar colors 
+# set statusbar_fgcolor #00FF00
+# set statusbar_bgcolor #000000
+# # set statusbar (SSl) color
+# set statusbar_ssl_fgcolor #1E90FF
+# set statusbar_ssl_bgcolor #000000
+# # set tabbar colors 
+# set tabbar_fgcolor #00FF00
+# set tabbar_bgcolor #000000
+# set tabbar_focus_fgcolor #55FFFF
+# set tabbar_focus_bgcolor #000000
+# set tabbar_separator_color #FF0000
+# # set completion color
+# set completion_fgcolor #00FF00
+# set completion_bgcolor #000000
+# # set completion cata color like (search engine. history)
+# set completion_g_fgcolor #00FF00
+# set completion_g_bgcolor #000000
+# # set current url hilight color
+# set completion_hl_fgcolor #000000
+# set completion_hl_bgcolor #00FF00
+# # set notify error color
+# set notification_e_fgcolor #000000
+# set notification_e_bgcolor #FF0000
+# # set notify warning color
+# set notification_w_fgcolor #000000
+# set notification_w_bgcolor #FF0000
+# # }
+
+
+# Key-bingings: {
+# you can see source code s config.h to find which key is bind
+# map [key] [function] [argument] [mode]
+# map <C-q> quit
+# map <C-o> nav_history previous
+# map <C-i> nav_history forward
+# map <C-w> close_tab
+# map i close_tab
+# map l nav_tabs next
+# map h nav_tabs previous
+# map e toggle_sourcecode
+# map s cmd_saveas
+# map e <C-s>
+# }
+
