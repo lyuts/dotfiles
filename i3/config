@@ -158,3 +158,5 @@ bar {
 #workspace 2 www
 assign [class="Firefox"] 2
 
+exec --no-startup-id /usr/local/bin/urxvt -e tmux
+
