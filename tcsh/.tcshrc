@@ -206,8 +206,4 @@ setenv LS_COLORS "${LS_COLORS}*.avi=36:*.mp3=36:*.mpg=36:*.ogg=36:*.ogv=36:*.wav
 setenv LS_OPTIONS "-N --color=tty -T 0"
 
 
-setenv PATH /usr/local/kde4/bin:$PATH
-
-#echo "Reading .tcshrc done"
 setxkbmap -option grp:switch,grp:shifts_toggle us,ru
-setenv PATH /usr/sbin:$PATH
