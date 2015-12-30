@@ -59,7 +59,7 @@ set correct=none
 ###############################
 ### add Make targets completion
 ###############################
-#alias __make_get_targets "grep \"^\\w*:\" Makefile | awk '{print $1;}'"
+#alias __make_get_targets 'grep "^\w*:" Makefile | sed -e "s/:.*//g"'
 #complete make 'p/1/`__make_get_targets`/'
 
 ###########################
