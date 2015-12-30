@@ -36,6 +36,10 @@ bindsym $mod+Shift+q kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# lock
+exec --no-startup-id xautolock -time 10 -locker "/usr/local/bin/i3lock -d -c 000000"
+bindsym Mod1+Ctrl+l exec /usr/local/bin/i3lock -d -c 000000
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
