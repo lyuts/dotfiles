@@ -72,7 +72,7 @@ set __git_cmd_names = (add bisect blame branch checkout clone commit config \
 alias __git_aliases 'git config --get-regex "alias.*" | sed -n "s,alias\.\([^ ]*\).*,\1,p"'
 alias __git_branches 'git for-each-ref --format="%(refname)" refs/heads refs/remotes | sed -e s,refs/remotes/,, | sed -e s,refs/heads/,,'
 alias __git_origin_branches 'git for-each-ref --format="%(refname)" refs/remotes/origin | grep -v HEAD | sed -e s,refs/remotes/origin/,,'
-alias __git_curr_branch 'sh -c "git symbolic-ref HEAD 2>/dev/null | xargs -r basename"'
+alias __git_curr_branch 'sh -c "git symbolic-ref --short HEAD 2>/dev/null"'
 
 set __pkg_cmd_names = (add audit autoremove backup check clean create delete \
                        fetch help info install query register remove repo \
