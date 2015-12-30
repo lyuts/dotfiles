@@ -38,7 +38,7 @@ alias tmux 'env TERM=rxvt-unicode-256color tmux -2'
 set dirsfile=~/.cshdirs
 set dirstack
 #set savedirs
-alias \+ 'pushd `pwd`'
+alias \+ 'pushd `pwd` ; dirs -v'
 alias \- 'popd'
 
 complete cd 'p/1/d/'
