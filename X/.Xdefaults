@@ -9,6 +9,11 @@ URxvt.scrollTtyKeypress: true
 URxvt*loginShell: true
 URxvt*.transparent: false
 URxvt*.cutchars: "()*,;<>[]{}|`\"'#│☂"'`"
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/local/bin/firefox
+URxvt.matcher.button: 1
+
 !URxvt.intensityStyles: false
 
 !--- key codes ---
