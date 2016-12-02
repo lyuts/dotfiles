@@ -1,1 +1,2 @@
 source ./colorscheme
+bind generic a !git commit --amend
