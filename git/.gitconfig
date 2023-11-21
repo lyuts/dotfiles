@@ -4,6 +4,8 @@
 
 [color]
     ui = always
+[commit]
+    verbose = true
 [push]
 	default = simple
 
