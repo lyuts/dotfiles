@@ -1,2 +1,3 @@
-source ./colorscheme
-bind generic a !git commit --amend
+bind status a !git commit --amend
+set line-graphics = utf-8
+set main-view-id-display = yes
